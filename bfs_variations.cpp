@@ -37,5 +37,46 @@ int shortestPathLenHelper(vector<vector< int> > &graph, int source, int dest) {
 
 // 5:
 
+enum Color {
+  BLANK,
+  BLUE,
+  RED
+};
+
+bool isBipartiteGraph(vector<vector<int> > &graph) {
+  // Assume graph is undirected. If not, we can turn it undirected. 
+  vector<Color> colors(graph.size(), BLANK);
+  list<int> bfs_q;
+  
+  for(int n=0; n < graph.size(); ++n) {
+    if(colors[n] == BLANK) { // Choose uncolored source from the graph
+      colors[n] = BLUE; // First node in component, arbitrarily color it blue.
+      bfs_q.push_back(n);
+      while(!bfs_q.empty()) {
+        int n = bfs_q.front();
+        bfs_q.pop_front();
+        for(int nei : graph[n]) {
+          if(colors[nei] == colors[n]) {
+            return false;  
+          }
+          if(colors[nei] == BLANK) {
+            if(colors[n] == BLUE) {
+                colors[nei] = RED;
+            } else {
+                colors[nei] = BLUE;
+            }
+            bfs_q.push_back(nei);
+          }
+        }
+      }
+    }
+  }
+  return true;
+}
+
+
+
+
+
 
 
