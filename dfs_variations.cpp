@@ -57,12 +57,12 @@ vector<bool> visited;
 
 // Alternatively, the graph could be weighted: vector<vector<pair<int,int> > >, and we ignore the weight for TS.
 void topologicalSortHelper(vector<vector<int> > &g, int n) {
+  visited[n] = true;
   for(const int& nei : g[n]) {
     if(!visited[nei]) {
       topologicalSortHelper(g,nei);
     }
   }
-  visited[n] = true;
   sorted.push(n);
 }
 
