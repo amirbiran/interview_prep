@@ -5,8 +5,9 @@
 // 2.) discover circles.
 // 3.) topological sort in DAG.
 // 4.) get longest paths from source node in DAG using topological sort.
-// 5.) get all fully connected components of a directed graph.
-// 6.) find all paths from s to d
+// 5.) get all fully connected components of a directed graph. (explanation only)
+// 6.) find all paths from s to d (explanation only)
+// 7.) find (d+1) coloring for a graph where d is maximal rank of a node (explanation only)
 
 
 // 1 + 2:
@@ -119,3 +120,11 @@ vector<int> longestPaths(vector<vector<pair<int,int> > > &graph, int source) {
 // 6:
 
 // In visited, keep only the current path. See (7) in: https://www.geeksforgeeks.org/applications-of-depth-first-search/
+
+
+// 7:
+
+// When visiting a vertex in dfs, first check the colors of it's neighbors, 
+// and color this vertex in the minimal color not used by the neigbhors. 
+
+
