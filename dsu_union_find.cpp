@@ -12,7 +12,7 @@ struct UnionFind {
     }
     
     int find(int i) {
-        // if i is its own parent, he is the leader of is group, so return him. o.w, go up his tree until the leader is found.
+        // if i is its own parent, he is the leader of his group, so return him. o.w, go up his tree until the leader is found.
         return (par[i] != i) ? (par[i] = find(par[i])) : par[i];
     }
     
@@ -20,7 +20,7 @@ struct UnionFind {
     bool doUnion(int i, int j) {
         // Get the leaders of i and j, pi and pj respectively
         int pi = find(i), pj = find(j);
-        // If leaders are same, return alse, since no union is required.
+        // If leaders are same, return false, since no union is required.
         if (pi == pj) return false;
         // if pj has greater rank, it become pi's parent
         if (rank[pi] < rank[pj])  {
