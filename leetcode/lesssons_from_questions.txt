@@ -1,0 +1,157 @@
+
+//                      Mock 1
+
+/*
+  359_Logger_Rate_Limiter  ~ Not enough time ~
+  Easy, should have started test with this one first. Ended up not having enough time to finish it.
+  Idea was to save previous messages in a map to the their last timestamp. Only print if their not in the map or, printed 
+  more than "window size" time units ago.
+  
+  Time Complexity for every command is O(1). Space complexity is O(N) where N is the number of different messages in the system.
+  Space Complexity can be reduced to O(1) if every 100 moves we perform a removal of messages seen before window_size time units.
+*/
+
+
+/*
+  Campus Bikes 1  ~ Success (but 10 times slower than other solution)  ~
+  https://leetcode.com/problems/campus-bikes/
+  
+  Apparantly my solution was very much on the limit when it comes to time complexity.
+  My solution of using a custom Class with worker, bike and distance, creating a custom comparator for an N*M sized heap and then
+  removing items until I got |workers| amount of pairs, took a long time.
+  
+  A solution proposed by another coder was around 10 times faster - the main insight he used was that distance between a worker and a 
+  a bike is an integer between 1 and 2000. Filling up distances in the appropriate distances array(of size 2000) with a vector of 
+  a worker/bike pair allowed to go over the |worker| best pairs much more easily - in O(1) per pair, instead of O(MN) when using the
+  heap I constructed. 
+  This is a MASSIVE improvement, I should definitely pay more attention to the metric discussed, if it is bound,
+  then perhaps it is wise to create a data structure that relates to all of its possiblities, or somehow iterate over the possiblities.
+  This also happened in my mock interview with Gil and the Toblerone question. 
+*/
+
+
+/*
+  All Paths from Source Lead to Destination ~ Great Success ~
+  https://leetcode.com/problems/all-paths-from-source-lead-to-destination/
+
+  Classic dfs variation. Required a few insights that heavily relied on given examples:
+    Destination is reachable.
+    No reachable circle.
+    The only reachable node without outgoing edges is destination.
+    
+  Implementing required building the graph and creating a dfs that marks reachables and looks for a circle (immediately return if found)
+  
+  Knowing dfs well and full is important. Also - how to detect a circle, and paying attention to question edge cases.
+  
+  Could have improved performence: end dfs if reached a node without outgoing edges that is not destination.
+*/
+
+
+
+//                         Mock 2
+
+
+/*
+  Peak Index in a Mountain Array
+  
+  Very simple. Trivial O(n) traverse of the array to find the peak.
+*/
+
+/*
+  Find in Mountain Array ~ Great Success ~
+  https://leetcode.com/problems/find-in-mountain-array/submissions/
+  
+  Used three binary searches variations: peak find, uphill find (ascending sorted) and downhill (descending sorted). 
+  
+  Knowing how to implement these binary searches really helped me on this one. Need to remember the following:
+    Can start and end the search on different indices than 0 and size-1, so that I can always perform comparisons in-search.
+    Maybe also check edges seperately.
+    
+  O(log(n))
+    
+*/
+
+/*
+  Delete nodes and return forest ~ Success ~ 
+  https://leetcode.com/problems/delete-nodes-and-return-forest/
+  
+  I solved using recursion. The method return a boolean of whether the given node is to be deleted or not. If yes, we erase it
+  as son of the current node.
+  
+  "Solve tree problems with recursion first".
+  Sometimes the calling node, i.e. the parent, needs to know something about it's subtree - so make a return value for the method.
+*/
+
+
+
+//                              Mock 3
+
+
+/*
+  Remove All Adjacent Duplicates In String  ~ Not Terrible, Not Great ~
+  https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
+  
+  Should have been very easy, turned it rather hard by not reading the question properly - happens too much - should focus
+  on understanding the question fully, creating examples and sometimes asking dumb questions just to make sure I'm on it.
+  
+  My solution is way slower that some of the others'. One can implement a readable super-fast 7 line solution by using 
+  string's push_back and pop_back methods! Very smart usage.
+*/
+
+
+/*
+  Brace Expansion ~ Success ~ 
+  https://leetcode.com/problems/brace-expansion/submissions/
+  
+  I like these sort of questions. There's a recursive traversing over the given string to create some final product/s. 
+  I correctly used a heap to store all chars of a specific curly brace and based on the min heap order I performed
+  recursive calls with the chosen letter to begin after the end of the curly brace.
+  
+  It's important to pay attention to things like expected order of the output. I failed first because I didn't notice it,
+  should never assume the order should be arbitrary. Also, should check what the return value should be, explicitly.
+*/
+
+
+/*
+  Stream of Characters ~ Not Terrible, Not Great ~
+  https://leetcode.com/problems/stream-of-characters/
+  
+  I kept trying to come up with ceative elaborate way on how to look-up on the last k letters, using different combinations 
+  of HashMaps and HashSets, this was confusing and simply not what I should have wen for.
+  These are a sequence of letters, with a very clear usage in the context of string matching from a dictionary - classic usage of 
+  the trie data structure. In this case the variation is for a reverse trie - meaning a trie for the reverse words - this way we 
+  can start looking for the end character each time of these is added. Each time a new letter is added, we must have it be the final
+  character of any word matching the last k letters in the stream - this is why we should use it in reverse - we start matching 
+  backwards.
+  
+  There are other improvement to the runtime including several advanced algorithms such as Aho Corasick / Automaton and KMP
+  // TODO READ OPTIONAL: https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm
+  // TODO READ OPTIONAL: https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
+  But these are rather too advanced for my kind of interview. If I have extra time, I can go over these.
+  
+  Need to implement trie and variations of trie.
+*/
+  
+ 
+
+//                     Mock 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
