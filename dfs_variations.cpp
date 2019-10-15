@@ -1,9 +1,9 @@
 
-// 1.) get all reachables from source node
-// 2.) discover circles
-// 3.) topological sort in DAG
-// 4.) get longest path from source node in DAG using topological sort
-// 5.) get all fully connected components of a graph
+// 1.) get all reachables from source node.
+// 2.) discover circles.
+// 3.) topological sort in DAG.
+// 4.) get longest paths from source node in DAG using topological sort.
+// 5.) get all fully connected components of a directed graph.
 
 
 // 1 + 2:
