@@ -137,7 +137,21 @@
 //                     Mock 4
 
 
+//  Toeplitz Matrix - super easy.
 
+
+// Bulls and cows, very easy.
+
+
+// Evaluate Division - cool DFS question, building a directed weighted graph from 2 unordered_maps to a double value of the edge.
+
+
+// Minimum Cost to Hire K workers:
+// Now.. This took a great deal of thought, and I couldn't make it. The answer lies, as I suspected, in the a relation between
+// quality and wages. One should sort the different workers by order of "ratio" between wage and quality, descending.
+// A high ratio is what dictates the rest of the wages. Once the highest ratio is set in a group of K workers, the other K-1 workers 
+// are payed by that ratio according to their quality. So we keep a max heap to pop highest quality worker and keep a sumheap variable
+// for easy access to total wage. 
 
 
 
