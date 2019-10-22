@@ -1,0 +1,11 @@
+
+// http://ahmed-badawy.com/blog/wp-content/uploads/2018/10/Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf
+
+
+
+// 1.) Remember to delete allocated memory after using new.
+// Page 170
+
+// 2.) Operator overloading cheat-sheet: https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B
+
+
